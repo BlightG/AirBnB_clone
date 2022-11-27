@@ -1,27 +1,26 @@
 #!/usr/bin/python3
 """ a module for Sta class manage Stas data """
-import uuid, models
+import uuid
+import models
 from datetime import datetime
 from models.base_model import BaseModel
 
 
-
 class State(BaseModel):
     """
-        a class that inhereits from BaseModel 
-        that manages State data 
+        a class that inhereits from BaseModel
+        that manages State data
     """
-    name = "" #string - empty string
-   
-    
+    name = ""  # string - empty string
+
     def __init__(self, *args, **kwargs):
         """ instansiation of the State class """
-        # super().__init__()
-        if  kwargs:
+        if kwargs:
             self.__dict__ = {
-                 **kwargs, "created_at":datetime.fromisoformat(kwargs["created_at"]),
-                "updated_at":datetime.fromisoformat(kwargs["updated_at"]),
-                "__class__":""
+                **kwargs,
+                "created_at": datetime.fromisoformat(kwargs["created_at"]),
+                "updated_at": datetime.fromisoformat(kwargs["updated_at"]),
+                "__class__": ""
             }
         else:
             self.id = str(uuid.uuid4())

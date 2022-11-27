@@ -25,18 +25,18 @@ class FileStorage():
         classname = obj.__class__.__name__
         FileStorage.__objects[f'{classname}.{obj.id}'] = obj
 
-
-    def save(self): 
+    def save(self):
         """ serializes __objects to the JSON file (path: __file_path)"""
         with open(FileStorage.__file_path, 'w', encoding='utf-8') as f:
-            towrite = {obj: FileStorage.__objects[obj].to_dict() for obj in FileStorage.__objects.keys()}
+            towrite = {obj: FileStorage.__objects[obj].to_dict()
+                       for obj in FileStorage.__objects.keys()}
             json.dump(towrite, f)
 
-    def reload(self): 
+    def reload(self):
         """
-            deserializes the JSON file to __objects 
+            deserializes the JSON file to __objects
             (only if the JSON file (__file_path) exists;
-            otherwise, do nothing. 
+            otherwise, do nothing.
             If the file doesnt exist, no exception should be raised)
         """
         if os.path.exists(FileStorage.__file_path):
@@ -44,8 +44,8 @@ class FileStorage():
                 try:
                     newdict = json.load(f)
                     for i in newdict.keys():
-                        newinstance = eval(newdict[i]["__class__"])(**newdict[i])
+                        newinstance = eval(newdict[i]["__class__"])\
+                        (**newdict[i])
                         self.new(newinstance)
                 except json.decoder.JSONDecodeError:
                     pass
-        
