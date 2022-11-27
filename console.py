@@ -207,18 +207,21 @@ Ex: $ update BaseModel 1234-1234-1234 email 'aibnb@mail.com'
 
     def Regex(self, line):
         """
-                parses <class name>.all() type commadas to
-                appropriate version
-                line: list
+            parses <class name>.all() type commadas to
+            appropriate version
+            line: list
         """
         pattern = r'(?<=\S)\.(?=\S)'
+        #  pattern will search for a . preceded and followed by a string
         result = re.split(pattern, line[0])
+        # result will hold a list of strings that precced and follow a .
         if result != [line[0]]:
             new_list = re.split(r'\(\)', result[1])
+            # new_list will hold value of result[1] with () removed
             if new_list != [result[1]]:
                 return f'{new_list[0]} {result[0]}'
             else:
-                id = re.findall(r'(?<=\(")[a-zA-Z0-9\-]{36}(?="\))', result[1])
+                id = re.findall(r'(?<=\(").+(?="\))', result[1])
                 cmd = re.findall(r'^\w+', result[1])
                 if id:
                     return f'{cmd[0]} {result[0]} {id[0]}'
