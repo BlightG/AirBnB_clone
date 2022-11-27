@@ -44,8 +44,8 @@ class FileStorage():
                 try:
                     newdict = json.load(f)
                     for i in newdict.keys():
-                        newinstance = eval(newdict[i]["__class__"])\
-                        (**newdict[i])
+                        newinstance = \
+                         eval(newdict[i]["__class__"])(**newdict[i])
                         self.new(newinstance)
                 except json.decoder.JSONDecodeError:
                     pass
