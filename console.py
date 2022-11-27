@@ -18,7 +18,7 @@ class HBNBCommand(cmd.Cmd):
     """ the home of the commandloop """
 
     prompt = '(hbnb) '
-    file = None
+    # file = None
     classdict = {"BaseModel": BaseModel,
                  "User": User,
                  "City": City,
