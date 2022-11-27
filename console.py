@@ -29,10 +29,8 @@ class HBNBCommand(cmd.Cmd):
     classkeys = classdict.keys()
 
     def do_create(self, args):
-        """
-            Creates a new instance of BaseModel,
-           saves it (to the JSON file) and prints the id
-        """
+        """Creates a new instance of BaseModel,
+saves it (to the JSON file) and prints the id"""
         if args:
             if args in HBNBCommand.classkeys:
                 newobj = HBNBCommand.classdict[args]()
@@ -45,10 +43,8 @@ class HBNBCommand(cmd.Cmd):
         return
 
     def do_show(self, command):
-        """
-            Prints the string representation of an
-            instance based on the class name and id
-        """
+        """Prints the string representation of an
+instance based on the class name and id"""
 
         args = command.split()  # splits command line into list of arguments
         objdict = storage.all()
@@ -74,11 +70,9 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
 
     def do_destroy(self, command):
-        """
-            Deletes an instance based on the class name and id
-            (save the change into the JSON file). Ex: $ destroy
-            BaseModel 1234-1234-1234
-        """
+        """Deletes an instance based on the class name and id
+(save the change into the JSON file). Ex: $ destroy BaseModel 1234-1234-1234
+"""
         args = command.split()  # splits command line into list of arguments
         objdict = storage.all()
 
@@ -105,21 +99,19 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
 
     def do_all(self, command):
-        """
-            Prints all string representation of all instances
-            based or not on the class name. Ex: $ all BaseModel or $ all
-        """
+        """Prints all string representation of all instances
+based or not on the class name. Ex: $ all BaseModel or $ all
+"""
         args = command.split()  # splits command line into list of arguments
         object_dict = storage.all()
 
         if len(args) == 1:
             if args[0] in HBNBCommand.classkeys:
                 for obj in object_dict.keys():
-                    """
-                    if statment checks the input command is same as
-                    name of class for objects in the object_dict
-                    Filestorage.__objects) dict
-                    """
+                    """if statment checks the input command is same as
+name of class for objects in the object_dict
+Filestorage.__objects) dict
+"""
                     if args[0] == object_dict[obj].__class__.__name__:
                         print(object_dict[obj])
             else:
@@ -129,10 +121,9 @@ class HBNBCommand(cmd.Cmd):
                 print(object_dict[obj])
 
     def do_count(self, command):
-        """
-            a module that returns the number of instances
-            belonging to a specific instance
-        """
+        """a module that returns the number of instances
+belonging to a specific instance
+"""
         args = command.split()  # splits command line into list of arguments
         object_dict = storage.all()
         count = 0
@@ -140,11 +131,10 @@ class HBNBCommand(cmd.Cmd):
         if len(args) == 1:
             if args[0] in HBNBCommand.classkeys:
                 for obj in object_dict.keys():
-                    """
-                    if statment checks the input command is same as
-                    name of class for objects in the object_dict
-                    Filestorage.__objects) dict
-                    """
+                    """if statment checks the input command is same as
+name of class for objects in the object_dict
+Filestorage.__objects) dict
+"""
                     if args[0] == object_dict[obj].__class__.__name__:
                         count += 1
                 print(count)
@@ -152,11 +142,10 @@ class HBNBCommand(cmd.Cmd):
                 print("** class doesn't exist **")
 
     def do_update(self, commands):
-        """
-            Updates an instance based on the class name and id by
-            adding or updating attribute (save the change into the JSON file).
-            Ex: $ update BaseModel 1234-1234-1234 email 'aibnb@mail.com'
-        """
+        """Updates an instance based on the class name and id by
+adding or updating attribute (save the change into the JSON file).
+Ex: $ update BaseModel 1234-1234-1234 email 'aibnb@mail.com'
+"""
         args = commands.split()
         if len(args) == 4:
             storedict = storage.all()  # stores all object in Storedict
@@ -189,23 +178,23 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
 
     def emptyline(self):
-        """
-            If this method is overriddes, the built in emptyline
+        """ If this method is overriddes, the built in emptyline
             function which repeats the last nonempty command entered.
         """
         return
 
     def do_quit(self, arg):
-        """ Quit command to exit the program """
+        """Quit command to exit the program
+        """
         return True
 
     def do_EOF(self, arg):
-        """ Quit command to exit the program """
+        """Quit command to exit the program
+        """
         return True
 
     def precmd(self, line):
-        """
-            pasrses line input from command line
+        """pasrses line input from command line
             to take care of <classname>.<cmd>(variable)
             cases
         """
