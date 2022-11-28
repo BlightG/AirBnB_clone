@@ -1,6 +1,10 @@
 #!/usr/bin/python3
 """ test module for base model """
-import unittest, time, io, sys, datetime
+import unittest
+import time
+import io
+import sys
+import datetime
 from models.base_model import BaseModel
 
 
@@ -36,7 +40,6 @@ class Test_BaseModel(unittest.TestCase):
         self.assertIsInstance(test_object2.created_at, datetime.datetime)
         self.assertIsInstance(test_object2.updated_at, datetime.datetime)
 
-        
     def test_print(self):
         """ tests functions that dont return but print """
         test_object = BaseModel()
