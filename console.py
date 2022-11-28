@@ -205,6 +205,8 @@ Ex: $ update BaseModel 1234-1234-1234 email 'aibnb@mail.com'
                 return new_line
             else:
                 return line
+        else:
+            return line
 
     def Regex(self, line):
         """
