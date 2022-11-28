@@ -199,11 +199,12 @@ Ex: $ update BaseModel 1234-1234-1234 email 'aibnb@mail.com'
             cases
         """
         args = line.split()
-        new_line = self.Regex(args)
-        if new_line:
-            return new_line
-        else:
-            return line
+        if len(args) >= 1:
+            new_line = self.Regex(args)
+            if new_line:
+                return new_line
+            else:
+                return line
 
     def Regex(self, line):
         """

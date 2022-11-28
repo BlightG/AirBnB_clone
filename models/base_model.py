@@ -30,7 +30,7 @@ class BaseModel():
 
     def __str__(self):
         """ prints a string representation of an instance"""
-        return "[{}]({}) {}".format(self.__class__.__name__,
+        return "[{}] ({}) {}".format(self.__class__.__name__,
                                     self.id, self.__dict__)
 
     def __setattr__(self, key, value):
