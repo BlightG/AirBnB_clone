@@ -20,6 +20,10 @@ class FileStorage():
         """ returns the dictionary __objects """
         return FileStorage.__objects
 
+    def path(self):
+        """ returns the path of the json file """
+        return FileStorage.__file_path
+
     def new(self, obj):
         """ sets the value of __objects """
         classname = obj.__class__.__name__
