@@ -1,0 +1,45 @@
+.filters {
+  height: 70px;
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: white;
+}
+
+.filters button {
+  float: right;
+  height: 48px;
+  width: 20%;
+  margin: 12px 30px 12px 0px;
+  font-size: 18px;
+  background: #ff5a5f;
+  color: #fff;
+  border-radius: 4px;
+  border: 0px;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+.amenities,
+.locations {
+  float: left;
+  height: 100%;
+  width: 25%;
+  line-height: 8px;
+  text-indent: 40px;
+}
+
+.locations {
+  border-right: 1px solid #ddd;
+}
+
+h3 {
+  font-weight: 600;
+}
+
+h4 {
+  font-weight: 400;
+  font-size: 14px;
+}

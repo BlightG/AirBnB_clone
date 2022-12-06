@@ -1,0 +1,19 @@
+.places article {
+  display: inline-block;
+  width: 390px;
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ff5a5f;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.places .suite {
+  position: relative;
+  left: 25%;
+}
+
+.places h2,
+.places h1 {
+  font-size: 30px;
+}
